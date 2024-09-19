@@ -38,7 +38,7 @@ def compute_calibration(true_labels, pred_labels, confidences, num_bins=10):
 
     bin_accuracies = np.zeros(num_bins, dtype=np.float64)
     bin_confidences = np.zeros(num_bins, dtype=np.float64)
-    bin_counts = np.zeros(num_bins, dtype=np.int)
+    bin_counts = np.zeros(num_bins, dtype=np.int64)
 
     for b in range(num_bins):
         selected = np.where(indices == b + 1)[0]
@@ -173,7 +173,7 @@ def _reliability_diagram_combined(bin_data,
     bin_data["counts"] = orig_counts
 
     # Also negate the ticks for the upside-down histogram.
-    new_ticks = np.abs(ax[1].get_yticks()).astype(np.int)
+    new_ticks = np.abs(ax[1].get_yticks()).astype(np.int64)
     ax[1].set_yticklabels(new_ticks)    
 
     plt.show()
