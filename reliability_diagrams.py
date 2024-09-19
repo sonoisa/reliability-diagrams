@@ -36,8 +36,8 @@ def compute_calibration(true_labels, pred_labels, confidences, num_bins=10):
     bins = np.linspace(0.0, 1.0, num_bins + 1)
     indices = np.digitize(confidences, bins, right=True)
 
-    bin_accuracies = np.zeros(num_bins, dtype=np.float)
-    bin_confidences = np.zeros(num_bins, dtype=np.float)
+    bin_accuracies = np.zeros(num_bins, dtype=np.float64)
+    bin_confidences = np.zeros(num_bins, dtype=np.float64)
     bin_counts = np.zeros(num_bins, dtype=np.int)
 
     for b in range(num_bins):
